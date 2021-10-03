@@ -99,8 +99,8 @@ void print_help(FILE *stream, char *program_filename)
 		"\t-m n\t\tSet memory limit to n mebibytes.\n"
 		"\t-u user\t\tSet effective user to user.\n"
 		"\t-g group\tSet effective group to grup.\n"
-		"\t-p\t\tForbid creation of processes.\n"
-		"\t-f\t\tForbid opening of files.\n"
+		"\t-p\t\tBlock creation of processes.\n"
+		"\t-f\t\tBlock opening of files.\n"
 		"\t-h\t\tPrint this message.\n";
 	fprintf(stream, message, program_filename);
 }
