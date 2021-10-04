@@ -8,9 +8,18 @@
 #include "process.h"
 #include "resources.h"
 
+struct options *options = NULL;
+struct process *process = NULL;
+
+void free_memory();
+
 int main(int argc, char *argv[])
 {
-	struct options *options = create_options();
+	if (atexit(free_memory) != 0) {
+		fprintf(stderr, "Cannot register function to run at exit.\n");
+		exit(EXIT_FAILURE);
+	}
+	options = create_options();
 	if (options == NULL) {
 		fprintf(stderr, "Cannot allocate memory.\n");
 		exit(EXIT_FAILURE);
@@ -30,7 +39,7 @@ int main(int argc, char *argv[])
 		print_help(stderr, basename(argv[0]));
 		exit(EXIT_FAILURE);
 	}
-	struct process *process = create_process(program_filename);
+	process = create_process(program_filename);
 	if (process == NULL) {
 		fprintf(stderr, "Cannot allocate memory.\n");
 		exit(EXIT_FAILURE);
@@ -89,4 +98,14 @@ int main(int argc, char *argv[])
 	}
 	print_execution_result(ended_process_status, execution_time, memory_usage);
 	return EXIT_SUCCESS;
+}
+
+void free_memory()
+{
+	if (options != NULL) {
+		free(options);
+	}
+	if (process != NULL) {
+		free(process);
+	}
 }
