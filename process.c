@@ -114,6 +114,7 @@ enum errors change_persona(const struct process *process)
 enum errors configure_process(const struct process *process)
 {
 	enum errors error = SUCCESS;
+	umask(0);
 	error = redirect_streams(process);
 	if (error != SUCCESS) {
 		return error;
