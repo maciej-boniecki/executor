@@ -4,6 +4,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include "execution_result.h"
+#include "help.h"
 #include "options.h"
 #include "process.h"
 #include "resources.h"

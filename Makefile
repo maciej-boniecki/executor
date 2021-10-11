@@ -1,5 +1,5 @@
 compilation_flags = -D_GNU_SOURCE -Wall -Wextra -Wshadow -std=c17
-objects = errors.o execution_result.o io.o main.o options.o process.o resources.o time.o
+objects = errors.o execution_result.o help.o io.o main.o options.o process.o resources.o time.o
 program = executor
 
 $(program): $(objects)
@@ -10,6 +10,9 @@ errors.o: errors.c errors.h
 
 execution_result.o: execution_result.c execution_result.h
 	gcc $(compilation_flags) -c execution_result.c
+
+help.o: help.c help.h
+	gcc $(compilation_flags) -c help.c
 
 io.o: io.c io.h
 	gcc $(compilation_flags) -c io.c
