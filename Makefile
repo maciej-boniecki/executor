@@ -32,5 +32,6 @@ resources.o: resources.c resources.h
 time.o: time.c time.h
 	gcc $(compilation_flags) -c time.c
 
+.PHONY: clean
 clean:
 	rm -f $(program) $(objects)
