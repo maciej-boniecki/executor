@@ -27,8 +27,6 @@ int get_options(int argc, char *argv[], struct options *options);
 
 void print_option_error();
 
-void print_help(FILE *stream, char *program_filename);
-
 char *get_program_filename(int argc, char *argv[]);
 
 #endif
